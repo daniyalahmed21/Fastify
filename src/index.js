@@ -6,7 +6,7 @@ const fastify = require("fastify")({ logger: true });
 
 fastify.register(utilityPlugin)
 
-fastify.register(userRoutes, { prefix: "/user" });
+fastify.register(userRoutes, { prefix: "/users" });
 
 fastify.get("/", async (request, reply) => {
     const serverId = fastify.generateId()

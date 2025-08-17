@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "fastify": "^5.5.0"
+  },
+  "name": "leetcode-submission-service",
+  "version": "1.0.0",
+  "description": "\"# Leetcode-Submission-Service\"",
+  "main": "src/index.js",
+  "devDependencies": {},
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniyalahmed21/Leetcode-Submission-Service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniyalahmed21/Leetcode-Submission-Service/issues"
+  },
+  "homepage": "https://github.com/daniyalahmed21/Leetcode-Submission-Service#readme"
+}

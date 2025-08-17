@@ -1,18 +1,26 @@
-import Fastify from "fastify";
+const utilityPlugin = require("./plugins/utilities");
+const userRoutes = require("./routes/userRoutes");
 
-const fastify = Fastify({
-  logger: false,
+// server.js
+const fastify = require("fastify")({ logger: true });
+
+fastify.register(utilityPlugin)
+
+fastify.register(userRoutes, { prefix: "/user" });
+
+fastify.get("/", async (request, reply) => {
+    const serverId = fastify.generateId()
+  return { hello: "world" , serverId };
 });
 
-fastify.get("/", function (request, reply) {
-  reply.send({ hello: "world" });
-});
+const start = async () => {
+  try {
+    await fastify.listen({ port: 3000 });
+    fastify.log.info(`Server listening on ${fastify.server.address().port}`);
+  } catch (err) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
+};
 
-
-fastify.listen({port:3000},(err,address)=>{
-    if(err){
-        console.log(err)
-    }
-
-    console.log(`server running on port ${address}`)
-})
+start();
